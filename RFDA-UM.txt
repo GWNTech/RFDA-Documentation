@@ -1,0 +1,279 @@
+Rapid Flood Damage Assessment (RFDA)
+====================================
+Augusto Ribeiro <gus@gwnsys.ca>
+v1.0, 2015.04.29
+
+
+// NOTE: The abstract, preface, appendix, bibliography, glossary and
+// index section titles are significant ('specialsections').
+
+
+
+[big]*RFDA - User Manual*
+
+
+:numbered!:
+[abstract]
+Preamble
+--------
+The best practice for flood mitigation project benefit-cost analysis uses the probabilistic approach based on projected future events. Flood damages in a community is estimated by calculating damages from a series of return floods. The flood depths are computed from hydrologic and hydraulic models.  When these are applied to depth-damage curves, the flood damages can be estimated for the flood event. The average annual expected damage can be estimated as the area under the damage-frequency curve.
+
+IBI Group and Ecos Engineering (IBI/ECOS) developed a computerized flood damage assessment system for Alberta Environment in the early 1980s. This system included a computerized database inventory of residential and commercial units within the flood risk areas. It was developed using a CPM micro computer and BASIC program. The system and process developed was ahead of its time. It was the first computerized flood damage assessment system that computed flood damages to each building structure in the floodplain. This system was subsequently ported to the IBM-PC and MS-DOS using the PC File application.
+
+In 1982 the flood damage database management system, or FDDBMS, was used in Alberta and subsequently was also used for flood damage assessment in the Province of Saskatchewan, under a flood damage reduction program undertaken by Saskatchewan Environment. It was then modified for use in the province of Manitoba under a project entitled “Development of Depth-Damage Curves for Residential and Farm Structures in Southern Manitoba”, under the Canada-Manitoba Flood Damage Reduction Program for Canada's Inland Waters Directorate.
+
+As a result of the 2013 flood in southern Alberta, Environment and Sustainable Resources Development (ESRD) decided to update FDDBMS, which was a legacy DOS based system, to a graphically based open source system that can integrate spatial GIS data with the database attributes. The new system is called the Rapid Flood Damage Assessment (RFDA) model. The following user manual will describe the key aspects on  how to  use this application.
+
+:numbered:
+
+GENERAL INFORMATION
+-------------------
+
+[[X1]]
+System Overview
+~~~~~~~~~~~~~~~
+RFDA is designed to be as easy as possible to use for flood damage assessment. It takes an open data approach giving users ready access to the input and output data. Instead of making users install, learn, and operate a complex relational database system, RFDA input files are in standard xls spreadsheet format.  RFDA output are in ascii csv format which can readily be imported into Excel or LibreOffice Calc.  
+
+To simplify installation and maintenance, RFDA is developed as a Quantum GIS (QGIS) plugin. QGIS is a FOSS4G (Free and Open Source Software for Geospatial) application that can run on multiple operating systems. This means that RFDA can be installed on Windows, Mac or Linux computers by users.
+
+RFDA is developed using Python. Python is a programming language that lets you work quickly and integrate systems more effectively. Python supports functional or procedural and object based approaches to software development. It is also supported by many open source applications such as QGIS. RFDA is currently under development (alpha release).
+
+RFDA is a QGIS plugin module that requires QGIS version 2.x to be installed. QGIS is a GIS application that allows you to create, edit, visualize, analyse and publish geospatial information on Windows, Mac, Linux, BSD and soon Android.
+
+
+.An example example
+===============================================
+Lorum ipum...
+===============================================
+
+
+Sub-section at level 2.
+
+
+Copyright
+~~~~~~~~~
+
+Copyright (c) 2015 GWN Technologies International a division of Ecosoft Systems Inc.
+
+Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.2 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+
+A copy of the license is included in the section GNU Free Documentation License.
+
+The above copyright notice excludes the QGIS User Manual which may be appended to this document. Consult the QGIS Manuals for further copyright and licensing information.
+
+link:images/GNU-GPL.html[GNU General Public License and Free Documentation License]
+
+Organization of the Manual
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Up-to-date Documentation**
+
+The latest version of this document can always be found in the
+documentation area of the |qg| website at
+http://www.qgis.org/en/docs/.
+
+Acronyms and Abbreviations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Some text here
+
+SYSTEM INSTALLATION
+-------------------
+
+RFDA is developed as a Quantum GIS plugin, consequently the user is required to install QGIS on the system.  QGIS is a FOSS4G application that will run on Windows, Linux and MacIntosh operating systems.  QGIS can be downloaded from: http://qgis.org/en/site/.  Documentation and installation instructions are available from the site.
+
+The RFDA plugin is available from GWN Technologies International by forwarding a request to: support@gwnsys.ca
+
+Installing QGIS
+~~~~~~~~~~~~~~~
+The latest version of QGIS can be downloaded from: https://www.qgis.org/en/site/forusers/download.html. 
+QGIS is available on Windows, MacOS X, Linux and Android.  Binary packages (installers) for current stable version can be downloaded and installed from the website listed.  Install QGIS version 2.x as per instructions from the website.
+
+
+Installing RFDA Plugin
+~~~~~~~~~~~~~~~~~~~~~~
+The RFDA plugin is supplied as a zip file. Unzip and copy the RFDA folder to the plugin folder for QGIS. The user should refer to the QGIS website to determine the folder location which is dependant on the user's operating system.
+
+For Windows users it is probably under C:\Users\Username\.qgis2\python\plugins.
+For Linux (Ubuntu) it is under \Home\.qgis2\python\plugins.
+
+Copy the RFDA folder into your QGIS plugin folder.
+
+Running RFDA Plugin
+~~~~~~~~~~~~~~~~~~~
+
+The RFDA plugin requires three Excel format spreadsheet (xls) input data files and one parameter file.  The first is a residential or commercial inventory, the second is the flood table with reach, return flood and flood elevations, and the third is the flood damage curves.
+
+Residential-Commercial Inventory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The residential or commercial inventory table is a database of the buildings in the flood prone area.  It is recommended that the inventory include all the structures that would be flooded by the highest flood elevation in the reach plus a buffer to take into account basement flooding.
+
+Flood Table Inventory
+^^^^^^^^^^^^^^^^^^^^^
+The flood table is a list of all the reaches and the flood elevations for the different return floods on the reach.  
+
+Damage Curve Table
+^^^^^^^^^^^^^^^^^^
+The damage curve table lists the depth-damage estimates for contents and structure for various residential classes and types.  Commercial damage curves lists contents for different commercial, retail and institutional categories and structural damages by construction type. Damage curves are listed as damage estimated per square metre.
+
+Damage Estimate Output Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The calculated flood damages are listed for each return flood with roll or assessment number as the key field and damages for main floor contents and structure and basement contents and structure. For commercial and multi-walkup and apartment buildings the basement contents and structures are replaced with underground parkage damage estimate if it is included. 
+
+RFDA Parameter File
+^^^^^^^^^^^^^^^^^^^
+The RFDA parameter files is a text file that lists the header field for the return floods, the column of the area field (assessed or building footprint from GIS), floor height, parkade damage per square metre, logical setting for sewer backup and logical for residential or commercial.
+
+
+Yet another nested Sub-section
+++++++++++++++++++++++++++++++
+Sub-section at level 4.
+
+This is the maximum sub-section depth supported by the distributed
+AsciiDoc configuration.
+footnote:[A second example footnote.]
+
+
+SYSTEM SUMMARY
+--------------
+RFDA was designed as a QGIS plugin for two reasons. The first was because QGIS provides a solid platform framework for RFDA which could be installed on multiple operating platforms like Microsoft Windows, Linux and Mac OS X, and secondly QGIS provides the user with a professional set of GIS tools that is needed for processing the input data and for analysis of the results after.
+
+QGIS is an Open Source Geographic Information System.  The project was born in May of 2002 and was established as a project on SourceForge in June of the same year.  We’ve worked hard to make GIS software (which is traditionally expensive proprietary software) a viable prospect for anyone with basic access to a personal computer. QGIS currently runs on most Unix platforms, Windows, and OS X. QGIS is developed using the Qt toolkit (http://qt.digia.com) and C++. This means that QGIS feels snappy and has a pleasing, easy-to-use graphical userinterface (GUI).
+
+QGIS aims to be a user-friendly GIS, providing common functions and features.  The initial goal of the project was to provide a GIS data viewer. QGIS has reached the point in its evolution where it is being used by many for their daily GIS data-viewing needs.  QGIS supports a number of raster and vector data formats, with new format support easily added using the plugin architecture.
+
+QGIS is released under the GNU General Public License (GPL). Developing QGIS under this license means that you can inspect and modify the source code, and guarantees that you, our happy user, will always have access to a GIS program that is free of cost and can be freely modified. You should have received a full copy of the license with your copy of QGIS, and you also can find it in Appendix
+GNU General Public License.
+
+An example link to anchor at start of the <<X1,first sub-section>>.
+indexterm:[Second example index entry]
+
+An example link to a bibliography entry <<taoup>>.
+
+System Configuration
+~~~~~~~~~~~~~~~~~~~~
+The RFDA plugin model is designed to help users undertake rapid flood damage assessment on a PC workstation running entirely on open source technologies.  For example a user can install Ubuntu (Linux) operating system with LibreOffice Calc, Quantum GIS, and the RFDA plugin which are all FOSS and FOSS4G applications.  Alternatively proprietary operating systems like Windows 8.1 and Macintosh OS X are also supported. However this user manual only describes how it works with Linux and Windows workstations.
+
+RFDA Input Data
+~~~~~~~~~~~~~~~
+The following sub-sections describes the input data in xls format that is required for use in RFDA.
+
+Residential Inventory
+^^^^^^^^^^^^^^^^^^^^^
+The residential inventory data is assembled into an xls spreadsheet by a data wrangler who munges the data from a number of sources including spatial data from a GIS coverage, assessment and other municipal records and databases.  
+The key or core data includes a parcel identification (PID) or assessment roll number as a key field.  Other data include building centroid and footprint area.  
+The building centroid is the spatial key in the local municipality's GIS coordinate reference system (CRS), so that its location in the floodplain is consistently depicted in relation to the HEC hydraulic model. Building class and type, together with grade and height to main floor are also required as input. 
+Based on its coordinates the reach information can be added to the inventory. The first 26 columns are used of which 11 are required. Additionally there are three scale factor constants which allows the user to increase or decrease total damage estimated and content and structural damages.
+
+Click on the link below to see the xls format that is required for inventory data.
+
+link:images/xlsTemplates.html[Input template formats]
+
+link:images/ResInventory.html[Residential inventory file example]
+
+------
+Note: Residential inventory example has been modified for demonstration purposes only.
+------
+
+Commercial Inventory
+^^^^^^^^^^^^^^^^^^^^
+The commercial inventory has the same fields as the residential inventory however the logical in the BGO field is set to Yes if there is underground parking and No if there is none.
+
+Damage Curves
+^^^^^^^^^^^^^
+Similarly flood damage curves for residential and commercial are combined into one table. Class and Type values are unique for each category.
+
+link:images/DamageCurves.html[Damage curve file example]
+
+Flood Table
+^^^^^^^^^^^
+The flood table is extracted from the USACE HEC-RAS model output. The HEC cross-sections are plotted as a layer coverage spatially in GIS.  Reaches comprising of two or more sections are selected and the average flood elevation, based on the start and end sections for the reach, is entered into the flood table. The reach information is also added to the flood table.
+
+link:images/FloodTable.html[Flood table file example]
+
+Parameter File
+^^^^^^^^^^^^^^
+The parameter file is an ascii comma-separated values (csv) file that users input the headers for the return floods, the inventory spreadsheet column for the area value to be used, height between floor levels in metres, value for parkade flooding per square metre, logical for sewer backup and logical for commercial inventory.
+
+Click on the link below to view a sample parameter file.
+
+link:images/residential.par[Sample residential parameter file]
+
+:numbered!:
+
+[appendix]
+FDDBMS
+------
+Flood Damage Database Management System
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+link:FDDBMS.html[FDDBMS Application]
+
+link:FDDBMS3.0Manual.pdf[FDDBMS User Manual]
+
+[appendix]
+References
+----------
+Project References
+~~~~~~~~~~~~~~~~~~
+
+link:images/ProjectReferences.txt[Project References List]
+
+
+
+
+[appendix]
+License
+-------
+
+
+GNU General Public License
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+link:images/GNU-GPL.html[GNU General Public License]
+
+----------------
+AsciiDoc article appendices are just just article sections with
+'specialsection' titles.
+
+Appendix Sub-section
+~~~~~~~~~~~~~~~~~~~~
+Appendix sub-section at level 2.
+
+
+
+[bibliography]
+Example Bibliography
+--------------------
+The bibliography list is a style of AsciiDoc bulleted list.
+
+[bibliography]
+- [[[taoup]]] Eric Steven Raymond. 'The Art of Unix
+  Programming'. Addison-Wesley. ISBN 0-13-142901-9.
+- [[[walsh-muellner]]] Norman Walsh & Leonard Muellner.
+  'DocBook - The Definitive Guide'. O'Reilly & Associates. 1999.
+  ISBN 1-56592-580-7.
+
+
+[glossary]
+Example Glossary
+----------------
+Glossaries are optional. Glossaries entries are an example of a style
+of AsciiDoc labeled lists.
+
+[glossary]
+A glossary term::
+  The corresponding (indented) definition.
+
+A second glossary term::
+  The corresponding (indented) definition.
+
+
+ifdef::backend-docbook[]
+[index]
+Example Index
+-------------
+////////////////////////////////////////////////////////////////
+The index is normally left completely empty, it's contents being
+generated automatically by the DocBook toolchain.
+////////////////////////////////////////////////////////////////
+endif::backend-docbook[]

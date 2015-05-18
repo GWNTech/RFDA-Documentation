@@ -736,8 +736,8 @@ asciidoc.install();
 <h1>Rapid Flood Damage Assessment (RFDA)</h1>
 <span id="author">Augusto Ribeiro</span><br />
 <span id="email"><code>&lt;<a href="mailto:gus@gwnsys.ca">gus@gwnsys.ca</a>&gt;</code></span><br />
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2015.04.29</span>
+<span id="revnumber">version 1.0a,</span>
+<span id="revdate">2015.05.15</span>
 </div>
 <div id="content">
 <div id="preamble">
@@ -745,13 +745,12 @@ asciidoc.install();
 <div class="paragraph"><p><strong><span class="big">RFDA - User Manual</span></strong></p></div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_preamble">Preamble</h2>
+<div id="preamble">
 <div class="sectionbody">
-<div class="paragraph"><p>The best practice for flood mitigation project benefit-cost analysis uses the probabilistic approach based on projected future events. Flood damages in a community is estimated by calculating damages from a series of return floods. The flood depths are computed from hydrologic and hydraulic models.  When these are applied to depth-damage curves, the flood damages can be estimated for the flood event. The average annual expected damage can be estimated as the area under the damage-frequency curve.</p></div>
+<div class="paragraph"><p>The best practice for flood mitigation project benefit-cost analysis uses the probabilistic approach based on projected future events. Flood damages in a community is estimated by calculating damages from a series of return floods. The flood depths are computed from hydrologic and hydraulic models.  When these are applied to depth-damage curves, the flood damages can be estimated for the flood event. The average annual expected damage (AAD/EAD) can be estimated as the area under the damage-frequency curve.</p></div>
 <div class="paragraph"><p>IBI Group and Ecos Engineering (IBI/ECOS) developed a computerized flood damage assessment system for Alberta Environment in the early 1980s. This system included a computerized database inventory of residential and commercial units within the flood risk areas. It was developed using a CPM micro computer and BASIC program. The system and process developed was ahead of its time. It was the first computerized flood damage assessment system that computed flood damages to each building structure in the floodplain. This system was subsequently ported to the IBM-PC and MS-DOS using the PC File application.</p></div>
 <div class="paragraph"><p>In 1982 the flood damage database management system, or FDDBMS, was used in Alberta and subsequently was also used for flood damage assessment in the Province of Saskatchewan, under a flood damage reduction program undertaken by Saskatchewan Environment. It was then modified for use in the province of Manitoba under a project entitled “Development of Depth-Damage Curves for Residential and Farm Structures in Southern Manitoba”, under the Canada-Manitoba Flood Damage Reduction Program for Canada&#8217;s Inland Waters Directorate.</p></div>
-<div class="paragraph"><p>As a result of the 2013 flood in southern Alberta, Environment and Sustainable Resources Development (ESRD) decided to update FDDBMS, which was a legacy DOS based system, to a graphically based open source system that can integrate spatial GIS data with the database attributes. The new system is called the Rapid Flood Damage Assessment (RFDA) model. The following user manual will describe the key aspects on  how to  use this application.</p></div>
+<div class="paragraph"><p>As a result of the 2013 flood in southern Alberta, Environment and Sustainable Resources Development (ESRD) provided support to update FDDBMS, from a legacy DOS based system, to a graphically based open source system that can integrate spatial GIS data with the database attributes. The new system is called the Rapid Flood Damage Assessment (RFDA) model. The following user manual will describe the key aspects on  how to  use this application.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -759,16 +758,10 @@ asciidoc.install();
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="X1">1.1. System Overview</h3>
-<div class="paragraph"><p>RFDA is designed to be as easy as possible to use for flood damage assessment. It takes an open data approach giving users ready access to the input and output data. Instead of making users install, learn, and operate a complex relational database system, RFDA input files are in standard xls spreadsheet format.  RFDA output are in ascii csv format which can readily be imported into Excel or LibreOffice Calc.</p></div>
-<div class="paragraph"><p>To simplify installation and maintenance, RFDA is developed as a Quantum GIS (QGIS) plugin. QGIS is a FOSS4G (Free and Open Source Software for Geospatial) application that can run on multiple operating systems. This means that RFDA can be installed on Windows, Mac or Linux computers by users.</p></div>
+<div class="paragraph"><p>RFDA is designed to be as easy as possible to use for flood damage assessment. It takes an open data approach giving users ready access to the input and output data. Instead of making users install, learn, and operate a complex relational database system, RFDA input files are stored in standard xls spreadsheet format.  RFDA output are in ascii csv format which can readily be imported into Excel or LibreOffice Calc for additional processing and formatting.</p></div>
+<div class="paragraph"><p>To simplify installation and maintenance, RFDA is developed as a Quantum GIS (QGIS) plugin. QGIS is a FOSS4G (Free and Open Source Software for Geospatial) application that can run on multiple operating systems. This means that RFDA can be installed on Windows, MacOS X or Linux computers by users.</p></div>
 <div class="paragraph"><p>RFDA is developed using Python. Python is a programming language that lets you work quickly and integrate systems more effectively. Python supports functional or procedural and object based approaches to software development. It is also supported by many open source applications such as QGIS. RFDA is currently under development (alpha release).</p></div>
-<div class="paragraph"><p>RFDA is a QGIS plugin module that requires QGIS version 2.x to be installed. QGIS is a GIS application that allows you to create, edit, visualize, analyse and publish geospatial information on Windows, Mac, Linux, BSD and soon Android.</p></div>
-<div class="exampleblock">
-<div class="title">Example 1. An example example</div>
-<div class="content">
-<div class="paragraph"><p>Lorum ipum&#8230;</p></div>
-</div></div>
-<div class="paragraph"><p>Sub-section at level 2.</p></div>
+<div class="paragraph"><p>RFDA is a QGIS plugin module that requires QGIS version 2.x to be installed. QGIS is a GIS application that allows you to create, edit, visualize, analyse and publish geospatial information on Windows, MacOS X, Linux, and soon Android.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_copyright">1.2. Copyright</h3>
@@ -776,7 +769,8 @@ asciidoc.install();
 <div class="paragraph"><p>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.2 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.</p></div>
 <div class="paragraph"><p>A copy of the license is included in the section GNU Free Documentation License.</p></div>
 <div class="paragraph"><p>The above copyright notice excludes the QGIS User Manual which may be appended to this document. Consult the QGIS Manuals for further copyright and licensing information.</p></div>
-<div class="paragraph"><p><a href="images/GNU-GPL.html">GNU General Public License and Free Documentation License</a></p></div>
+<div class="paragraph"><p>Click on the link below to access a full listing of the license.</p></div>
+<div class="paragraph"><p><a href="GNU-GPL.html">GNU General Public License and Free Documentation License</a></p></div>
 </div>
 <div class="sect2">
 <h3 id="_organization_of_the_manual">1.3. Organization of the Manual</h3>
@@ -787,56 +781,58 @@ documentation area of the |qg| website at
 </div>
 <div class="sect2">
 <h3 id="_acronyms_and_abbreviations">1.4. Acronyms and Abbreviations</h3>
-<div class="paragraph"><p>Some text here</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="RFDA-Acronyms.gif" alt="RFDA-Acronyms.gif" />
+</span></p></div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_system_installation">2. SYSTEM INSTALLATION</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>RFDA is developed as a Quantum GIS plugin, consequently the user is required to install QGIS on the system.  QGIS is a FOSS4G application that will run on Windows, Linux and MacIntosh operating systems.  QGIS can be downloaded from: <a href="http://qgis.org/en/site/">http://qgis.org/en/site/</a>.  Documentation and installation instructions are available from the site.</p></div>
+<div class="paragraph"><p>RFDA is developed as a Quantum GIS plugin, consequently the user is required to install QGIS on the system.  QGIS is a FOSS4G application that will run on Windows, Linux and MacOS X.  QGIS can be downloaded from: <a href="http://qgis.org/en/site/">http://qgis.org/en/site/</a>.  Documentation and installation instructions are available from the site.</p></div>
 <div class="paragraph"><p>The RFDA plugin is available from GWN Technologies International by forwarding a request to: <a href="mailto:support@gwnsys.ca">support@gwnsys.ca</a></p></div>
 <div class="sect2">
 <h3 id="_installing_qgis">2.1. Installing QGIS</h3>
-<div class="paragraph"><p>The latest version of QGIS can be downloaded from: <a href="https://www.qgis.org/en/site/forusers/download.html">https://www.qgis.org/en/site/forusers/download.html</a>.
-QGIS is available on Windows, MacOS X, Linux and Android.  Binary packages (installers) for current stable version can be downloaded and installed from the website listed.  Install QGIS version 2.x as per instructions from the website.</p></div>
+<div class="paragraph"><p>The latest version of QGIS can be downloaded from: <a href="https://www.qgis.org/en/site/forusers/download.html">https://www.qgis.org/en/site/forusers/download.html</a>.</p></div>
+<div class="paragraph"><p>QGIS is available on Windows, MacOS X, Linux and Android.  Binary packages (installers) for current stable version can be downloaded and installed from the website listed.  Install QGIS version 2.x as per instructions from the website.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_installing_rfda_plugin">2.2. Installing RFDA Plugin</h3>
 <div class="paragraph"><p>The RFDA plugin is supplied as a zip file. Unzip and copy the RFDA folder to the plugin folder for QGIS. The user should refer to the QGIS website to determine the folder location which is dependant on the user&#8217;s operating system.</p></div>
-<div class="paragraph"><p>For Windows users it is probably under C:\Users\Username\.qgis2\python\plugins.
-For Linux (Ubuntu) it is under \Home\.qgis2\python\plugins.</p></div>
+<div class="paragraph"><p>For Windows users it is probably under C:\Users\Username\.qgis2\python\plugins.</p></div>
+<div class="paragraph"><p>For Linux (Ubuntu) it is under \Home\.qgis2\python\plugins.</p></div>
 <div class="paragraph"><p>Copy the RFDA folder into your QGIS plugin folder.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_running_rfda_plugin">2.3. Running RFDA Plugin</h3>
-<div class="paragraph"><p>The RFDA plugin requires three Excel format spreadsheet (xls) input data files and one parameter file.  The first is a residential or commercial inventory, the second is the flood table with reach, return flood and flood elevations, and the third is the flood damage curves.</p></div>
+<div class="paragraph"><p>The RFDA plugin requires three files in Microsoft Excel spreadsheet format (xls) input data files and one ascii text based parameter file.  The first is a residential or commercial inventory, the second is the flood table with reach, return flood and flood elevations, and the third is the flood damage curves.</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="RFDA-dialog.png" alt="RFDA Application Dialog" />
+</span></p></div>
 <div class="sect3">
 <h4 id="_residential_commercial_inventory">2.3.1. Residential-Commercial Inventory</h4>
 <div class="paragraph"><p>The residential or commercial inventory table is a database of the buildings in the flood prone area.  It is recommended that the inventory include all the structures that would be flooded by the highest flood elevation in the reach plus a buffer to take into account basement flooding.</p></div>
+<div class="paragraph"><p><a href="#X2">Residential Inventory</a></p></div>
+<div class="paragraph"><p><a href="#X3">Commercial Inventory</a></p></div>
 </div>
 <div class="sect3">
 <h4 id="_flood_table_inventory">2.3.2. Flood Table Inventory</h4>
 <div class="paragraph"><p>The flood table is a list of all the reaches and the flood elevations for the different return floods on the reach.</p></div>
+<div class="paragraph"><p><a href="#X5">Flood Table</a></p></div>
 </div>
 <div class="sect3">
 <h4 id="_damage_curve_table">2.3.3. Damage Curve Table</h4>
 <div class="paragraph"><p>The damage curve table lists the depth-damage estimates for contents and structure for various residential classes and types.  Commercial damage curves lists contents for different commercial, retail and institutional categories and structural damages by construction type. Damage curves are listed as damage estimated per square metre.</p></div>
+<div class="paragraph"><p><a href="#X4">Damage Curves</a></p></div>
 </div>
 <div class="sect3">
 <h4 id="_damage_estimate_output_data">2.3.4. Damage Estimate Output Data</h4>
-<div class="paragraph"><p>The calculated flood damages are listed for each return flood with roll or assessment number as the key field and damages for main floor contents and structure and basement contents and structure. For commercial and multi-walkup and apartment buildings the basement contents and structures are replaced with underground parkage damage estimate if it is included.</p></div>
+<div class="paragraph"><p>The calculated flood damages are listed for each return flood with PID, roll or assessment number as the key field and damages for main floor contents and structure and basement contents and structure. For commercial and multi-walkup and apartment buildings the basement contents and structures are replaced with underground parkage damage estimate if it is included.</p></div>
 </div>
 <div class="sect3">
 <h4 id="_rfda_parameter_file">2.3.5. RFDA Parameter File</h4>
 <div class="paragraph"><p>The RFDA parameter files is a text file that lists the header field for the return floods, the column of the area field (assessed or building footprint from GIS), floor height, parkade damage per square metre, logical setting for sewer backup and logical for residential or commercial.</p></div>
-<div class="sect4">
-<h5 id="_yet_another_nested_sub_section">Yet another nested Sub-section</h5>
-<div class="paragraph"><p>Sub-section at level 4.</p></div>
-<div class="paragraph"><p>This is the maximum sub-section depth supported by the distributed
-AsciiDoc configuration.
-<span class="footnote"><br />[A second example footnote.]<br /></span></p></div>
-</div>
 </div>
 </div>
 </div>
@@ -845,12 +841,10 @@ AsciiDoc configuration.
 <h2 id="_system_summary">3. SYSTEM SUMMARY</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>RFDA was designed as a QGIS plugin for two reasons. The first was because QGIS provides a solid platform framework for RFDA which could be installed on multiple operating platforms like Microsoft Windows, Linux and Mac OS X, and secondly QGIS provides the user with a professional set of GIS tools that is needed for processing the input data and for analysis of the results after.</p></div>
-<div class="paragraph"><p>QGIS is an Open Source Geographic Information System.  The project was born in May of 2002 and was established as a project on SourceForge in June of the same year.  We’ve worked hard to make GIS software (which is traditionally expensive proprietary software) a viable prospect for anyone with basic access to a personal computer. QGIS currently runs on most Unix platforms, Windows, and OS X. QGIS is developed using the Qt toolkit (<a href="http://qt.digia.com">http://qt.digia.com</a>) and C++. This means that QGIS feels snappy and has a pleasing, easy-to-use graphical userinterface (GUI).</p></div>
+<div class="paragraph"><p>QGIS is an Open Source Geographic Information System.  The project was born in May of 2002 and was established as a project on SourceForge in June of the same year.  The QGIS team has worked hard to make GIS software (which is traditionally expensive proprietary software) a viable prospect for anyone with basic access to a personal computer. QGIS is developed using the Qt toolkit (<a href="http://qt.digia.com">http://qt.digia.com</a>) and C++. This means that QGIS feels snappy and has a pleasing, easy-to-use graphical userinterface (GUI).</p></div>
 <div class="paragraph"><p>QGIS aims to be a user-friendly GIS, providing common functions and features.  The initial goal of the project was to provide a GIS data viewer. QGIS has reached the point in its evolution where it is being used by many for their daily GIS data-viewing needs.  QGIS supports a number of raster and vector data formats, with new format support easily added using the plugin architecture.</p></div>
 <div class="paragraph"><p>QGIS is released under the GNU General Public License (GPL). Developing QGIS under this license means that you can inspect and modify the source code, and guarantees that you, our happy user, will always have access to a GIS program that is free of cost and can be freely modified. You should have received a full copy of the license with your copy of QGIS, and you also can find it in Appendix
 GNU General Public License.</p></div>
-<div class="paragraph"><p>An example link to anchor at start of the <a href="#X1">first sub-section</a>.</p></div>
-<div class="paragraph"><p>An example link to a bibliography entry <a href="#taoup">[taoup]</a>.</p></div>
 <div class="sect2">
 <h3 id="_system_configuration">3.1. System Configuration</h3>
 <div class="paragraph"><p>The RFDA plugin model is designed to help users undertake rapid flood damage assessment on a PC workstation running entirely on open source technologies.  For example a user can install Ubuntu (Linux) operating system with LibreOffice Calc, Quantum GIS, and the RFDA plugin which are all FOSS and FOSS4G applications.  Alternatively proprietary operating systems like Windows 8.1 and Macintosh OS X are also supported. However this user manual only describes how it works with Linux and Windows workstations.</p></div>
@@ -859,38 +853,50 @@ GNU General Public License.</p></div>
 <h3 id="_rfda_input_data">3.2. RFDA Input Data</h3>
 <div class="paragraph"><p>The following sub-sections describes the input data in xls format that is required for use in RFDA.</p></div>
 <div class="sect3">
-<h4 id="_residential_inventory">3.2.1. Residential Inventory</h4>
+<h4 id="X2">3.2.1. Residential Inventory</h4>
 <div class="paragraph"><p>The residential inventory data is assembled into an xls spreadsheet by a data wrangler who munges the data from a number of sources including spatial data from a GIS coverage, assessment and other municipal records and databases.
 The key or core data includes a parcel identification (PID) or assessment roll number as a key field.  Other data include building centroid and footprint area.
 The building centroid is the spatial key in the local municipality&#8217;s GIS coordinate reference system (CRS), so that its location in the floodplain is consistently depicted in relation to the HEC hydraulic model. Building class and type, together with grade and height to main floor are also required as input.
 Based on its coordinates the reach information can be added to the inventory. The first 26 columns are used of which 11 are required. Additionally there are three scale factor constants which allows the user to increase or decrease total damage estimated and content and structural damages.</p></div>
-<div class="paragraph"><p>Click on the link below to see the xls format that is required for inventory data.</p></div>
-<div class="paragraph"><p><a href="images/xlsTemplates.html">Input template formats</a></p></div>
-<div class="paragraph"><p><a href="images/ResInventory.html">Residential inventory file example</a></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="ResidentialTemplate.png" alt="ResidentialTemplate.png" />
+</span></p></div>
+<div class="paragraph"><p>Click on the link below to see the xls example of residential inventory data.</p></div>
+<div class="paragraph"><p><a href="ResInventory.html">Residential inventory file example</a></p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>Note: Residential inventory example has been modified for demonstration purposes only.</code></pre>
 </div></div>
 </div>
 <div class="sect3">
-<h4 id="_commercial_inventory">3.2.2. Commercial Inventory</h4>
-<div class="paragraph"><p>The commercial inventory has the same fields as the residential inventory however the logical in the BGO field is set to Yes if there is underground parking and No if there is none.</p></div>
+<h4 id="X3">3.2.2. Commercial Inventory</h4>
+<div class="paragraph"><p>The commercial inventory has the same fields as the residential inventory however the logical in the Basement field is set to Yes if there is underground parking and No if there is none.</p></div>
 </div>
 <div class="sect3">
-<h4 id="_damage_curves">3.2.3. Damage Curves</h4>
-<div class="paragraph"><p>Similarly flood damage curves for residential and commercial are combined into one table. Class and Type values are unique for each category.</p></div>
-<div class="paragraph"><p><a href="images/DamageCurves.html">Damage curve file example</a></p></div>
+<h4 id="X4">3.2.3. Damage Curves</h4>
+<div class="paragraph"><p>Similarly flood damage curves for residential and commercial are combined into one table. Class and Type values are unique for each category. Note first row is the setup header, second to last are the content and structure damage curves.</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="DamageCurveTemplate.png" alt="DamageCurveTemplate.png" />
+</span></p></div>
+<div class="paragraph"><p><a href="DamageCurves.html">Damage curve file example</a></p></div>
 </div>
 <div class="sect3">
-<h4 id="_flood_table">3.2.4. Flood Table</h4>
+<h4 id="X5">3.2.4. Flood Table</h4>
 <div class="paragraph"><p>The flood table is extracted from the USACE HEC-RAS model output. The HEC cross-sections are plotted as a layer coverage spatially in GIS.  Reaches comprising of two or more sections are selected and the average flood elevation, based on the start and end sections for the reach, is entered into the flood table. The reach information is also added to the flood table.</p></div>
-<div class="paragraph"><p><a href="images/FloodTable.html">Flood table file example</a></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="FloodTableTemplate.png" alt="FloodTableTemplate.png" />
+</span></p></div>
+<div class="paragraph"><p><a href="FloodTable.html">Flood table file example</a></p></div>
 </div>
 <div class="sect3">
 <h4 id="_parameter_file">3.2.5. Parameter File</h4>
 <div class="paragraph"><p>The parameter file is an ascii comma-separated values (csv) file that users input the headers for the return floods, the inventory spreadsheet column for the area value to be used, height between floor levels in metres, value for parkade flooding per square metre, logical for sewer backup and logical for commercial inventory.</p></div>
-<div class="paragraph"><p>Click on the link below to view a sample parameter file.</p></div>
-<div class="paragraph"><p><a href="images/residential.par">Sample residential parameter file</a></p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Sample parameter file. Note no space after the commas:
+
+2 Year Flood,10 Year Flood,20 Year Flood,50 Year Flood,100 Year Flood,500 Year Flood,13,2.7,215,NoSewer,NoCommercial</code></pre>
+</div></div>
 </div>
 </div>
 </div>
@@ -906,11 +912,11 @@ Based on its coordinates the reach information can be added to the inventory. Th
 </div>
 </div>
 <div class="sect1">
-<h2 id="_references">Appendix B: References</h2>
+<h2 id="_inventory_process">Appendix B: Inventory Process</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_project_references">Project References</h3>
-<div class="paragraph"><p><a href="images/ProjectReferences.txt">Project References List</a></p></div>
+<h3 id="_inventory_process_2">Inventory Process</h3>
+<div class="paragraph"><p>Tutorial on the munging of residential and commercial inventory data to come.</p></div>
 </div>
 </div>
 </div>
@@ -919,71 +925,54 @@ Based on its coordinates the reach information can be added to the inventory. Th
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_gnu_general_public_license">GNU General Public License</h3>
-<div class="paragraph"><p><a href="images/GNU-GPL.html">GNU General Public License</a></p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>AsciiDoc article appendices are just just article sections with
-'specialsection' titles.
-
-Appendix Sub-section
-~~~~~~~~~~~~~~~~~~~~
-Appendix sub-section at level 2.
-
-
-
-[bibliography]
-Example Bibliography</code></pre>
-</div></div>
-<div class="paragraph"><p>The bibliography list is a style of AsciiDoc bulleted list.</p></div>
+<div class="paragraph"><p><a href="GNU-GPL.html">GNU General Public License</a></p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bibliography">Bibliography</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>In addition to the list below it is recommended that the user also investigate other reference material with respect to QGIS, and Python if there is interest to contribute to the development.</p></div>
 <div class="ulist bibliography"><ul>
 <li>
 <p>
-<a id="taoup"></a>[taoup] Eric Steven Raymond. <em>The Art of Unix
-  Programming</em>. Addison-Wesley. ISBN 0-13-142901-9.
+<a id="acres"></a>[acres] Acres Limited. (1968). "Guidelines for Analysis, Volume II Flood Damages", Government of Canada and Ontario Joint Task Force on Water Conservation Projects in Southern Ontario.
 </p>
 </li>
 <li>
 <p>
-<a id="walsh-muellner"></a>[walsh-muellner] Norman Walsh &amp; Leonard Muellner.
-  <em>DocBook - The Definitive Guide</em>. O&#8217;Reilly &amp; Associates. 1999.
-  ISBN 1-56592-580-7.
+<a id="ECOS"></a>[ECOS] ECOS Engineering Services Ltd., Flood Damage Database Management System, User&#8217;s Guide, Version 3.0, March 1983.
+</p>
+</li>
+<li>
+<p>
+<a id="IBI-ECOS"></a>[IBI-ECOS]  IBI Group and ECOS Engineering Services Ltd., Phase IIB, Flood Damage Estimates, Fort McMurray Flood Damage Reduction Program, Technical Report, Alberta Environment and the City of Fort McMurray, Fort McMurray 1982.
+</p>
+</li>
+<li>
+<p>
+<a id="QGIS"></a>[QGIS] QGIS Development Team, 2015. QGIS Geographic Information System. Open Source Geospatial Foundation Project. <a href="http://qgis.osgeo.org">http://qgis.osgeo.org</a>.
+</p>
+</li>
+<li>
+<p>
+<a id="shawcross-ribeiro"></a>[shawcross-ribeiro] Shawcross, S.W., and Ribeiro, A.R.V., "The development of residential stage-damage curves for application in Western Canada", (Flood Hazard Management in Government and the Private Sector, Proceedings of the Ninth Annual Conference of State Floodplain Managers, 100-105, 1985.
+</p>
+</li>
+<li>
+<p>
+<a id="sherman"></a>[sherman] Sherman, G., "The PyQGIS Programmer&#8217;s Guide", Extending QGIS 2.x with Python, Locate Press LLC, 2014.
 </p>
 </li>
 </ul></div>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_example_glossary">Example Glossary</h2>
-<div class="sectionbody">
-<div class="paragraph"><p>Glossaries are optional. Glossaries entries are an example of a style
-of AsciiDoc labeled lists.</p></div>
-<div class="dlist glossary"><dl>
-<dt>
-A glossary term
-</dt>
-<dd>
-<p>
-  The corresponding (indented) definition.
-</p>
-</dd>
-<dt>
-A second glossary term
-</dt>
-<dd>
-<p>
-  The corresponding (indented) definition.
-</p>
-</dd>
-</dl></div>
-</div>
-</div>
-</div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br />
-Last updated 2015-05-11 06:58:21 MDT
+Version 1.0a<br />
+Last updated 2015-05-15 05:25:48 MDT
 </div>
 </div>
 </body>
